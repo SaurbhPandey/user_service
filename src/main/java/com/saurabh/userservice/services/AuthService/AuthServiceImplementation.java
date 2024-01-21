@@ -53,7 +53,7 @@ public class AuthServiceImplementation implements AuthService{
         userDto = userDto.from(user);
         MultiValueMapAdapter<String , String> header = new MultiValueMapAdapter<>(new HashMap<>());
         header.add(HttpHeaders.SET_COOKIE ,"auth_token:" + token);
-        ResponseEntity<UserDto> userResponse = new ResponseEntity<>(userDto , HttpStatus.OK);
+        ResponseEntity<UserDto> userResponse = new ResponseEntity<>(userDto , header , HttpStatus.OK);
         return userResponse;
     }
 
